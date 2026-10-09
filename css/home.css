@@ -1,0 +1,125 @@
+/* Coordinates and section heights follow the 1440 × 5681 reference.
+   Percentages preserve the desktop composition without a separate mobile layout. */
+.hero {
+  position: relative;
+  height: 999px;
+  overflow: hidden;
+  color: #fff;
+  background: url("../assets/images/home/hero-background.png") center / 100% 100% no-repeat;
+  text-align: center;
+}
+.hero-decoration img { position: absolute; pointer-events: none; }
+.flower-one { left: 0; top: 30px; width: 210px; height: 340px; }
+.flower-two { left: 0; top: 587px; width: 283px; height: 362px; }
+.flower-three { right: 0; top: 73px; width: 183px; height: 338px; }
+.flower-four { right: 0; top: 654px; width: 225px; height: 298px; }
+.leaf-one { left: 0; top: 400px; width: 142px; height: 155px; }
+.leaf-two { right: 0; top: 455px; width: 146px; height: 166px; }
+.hero h1 { font-size: 70px; line-height: 1.2; }
+.hero h1 span { position: absolute; left: 0; width: 100%; }
+.hero-first-line { top: 164px; }
+.hero-second-line { top: 249px; }
+.hero-amazing { top: 361px; display: flex; justify-content: center; padding-left: 12px; }
+.hero-amazing img { width: 395px; height: 81px; }
+.hero-last-line { top: 465px; }
+.hero-arrows { position: absolute; top: 595px; left: calc(50% - 111px); }
+.hero-contact {
+  position: absolute;
+  top: 824px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 305px;
+  height: 57px;
+  border: 4px solid #fff;
+  border-radius: 21px;
+  font-family: var(--heading-font);
+  font-size: 22px;
+}
+
+.projects { padding: 51px 2.847222% 50px; }
+.project-row { display: flex; align-items: flex-start; justify-content: space-between; }
+.project-row img { height: auto; }
+.project-row-first { margin-bottom: 51px; padding-right: 5px; }
+.project-row-first img:first-child { width: 48.262% ; }
+.project-row-first img:last-child { width: 47.967%; }
+.project-wide { width: calc(100% - 5px); height: auto; margin-bottom: 51px; }
+.project-row-last img:first-child { width: 48.0869%; }
+.project-row-last img:last-child { width: 48.4551%; }
+
+.about {
+  height: 775px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: url("../assets/images/home/about-%20background.png") center / 100% 100% no-repeat;
+}
+.about-flower-left { position: absolute; left: 0; top: 252px; width: 112px; height: 448px; }
+.about-flower-right { position: absolute; right: 0; top: 229px; width: 156px; height: 445px; }
+.about-copy { position: absolute; left: 13.263889%; top: 221px; }
+.about-copy h2 {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  margin-left: -4px;
+  margin-bottom: 32px;
+  font-size: 48px;
+  line-height: 65px;
+}
+.about-copy h2 img { width: 231px; height: 65px; }
+.about-copy p { font-size: 24px; line-height: 30px; margin-bottom: 30px; }
+.about-copy p + p { margin-bottom: 22px; }
+.resume-link { display: inline-block; border-bottom: 1px solid #fff; padding-bottom: 4px; line-height: 30px; }
+.about-portrait { position: absolute; left: 60.138889%; top: 253px; width: 354px; height: 358px; }
+
+.contact { height: 1237px; padding-top: 110px; text-align: center; }
+.contact h2 { position: relative; left: -9px; font-size: 64px; line-height: 77px; }
+.contact-intro { position: relative; left: 8px; margin-top: 23px; font-size: 24px; line-height: 30px; }
+.contact-form { width: 74.444444%; max-width: 1072px; margin: 59px auto 0; text-align: left; }
+.form-field label { display: block; line-height: 30px; }
+.form-field input, .form-field select, .form-field textarea {
+  display: block;
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  padding: 8px 12px;
+}
+.form-field input, .form-field select { height: 53px; }
+.field-name label { margin-bottom: 22px; }
+.field-name { margin-bottom: 34px; }
+.field-email label { margin-bottom: 17px; }
+.field-email { margin-bottom: 24px; }
+.field-subject label { margin-bottom: 17px; }
+.field-subject { margin-bottom: 34px; }
+.field-message label { margin-bottom: 18px; }
+.field-message textarea { height: 259px; resize: none; }
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  right: 30px;
+  top: 16px;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+.form-field select { appearance: none; padding-right: 62px; color: #7e88bf; }
+.send-message {
+  display: block;
+  width: 235px;
+  height: 57px;
+  margin: 50px auto 0;
+  padding: 0;
+  border: 0;
+  border-radius: 21px;
+  color: #fff;
+  background: var(--ink);
+  font-size: 24px;
+  opacity: 1;
+}
