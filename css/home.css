@@ -1,5 +1,173 @@
 /* Coordinates and section heights follow the 1440 × 5681 reference.
    Percentages preserve the desktop composition without a separate mobile layout. */
+.home-reveal-enabled .home-reveal {
+  opacity: 0;
+  transition: opacity 700ms ease-out;
+}
+
+/* Homepage adaptations only; the established desktop composition is unchanged. */
+@media (max-width: 1023.98px) {
+  #home { --home-gutter: 16px; font-size: 16px; line-height: 1.4; }
+  #home .site-header { max-width: none; padding-inline: var(--home-gutter); font-size: 18px; }
+  #home .primary-nav { gap: 24px; }
+  #home .header-socials { gap: 20px; }
+
+  #home .hero {
+    height: auto;
+    padding: clamp(72px, 21.6vw, 110px) var(--home-gutter) 88px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #home .hero h1 { width: 100%; display: grid; gap: 12px; font-size: clamp(26px, 7.5vw, 48px); line-height: 1.2; }
+  #home .hero h1 span { position: static; width: auto; }
+  #home .hero-amazing { padding: 8px 0 0; }
+  #home .hero-amazing img { width: min(55vw, 300px); height: auto; }
+  #home .hero-arrows { position: static; width: clamp(130px, 32vw, 180px); height: auto; margin-top: 32px; }
+  #home .hero-contact {
+    position: static;
+    transform: none;
+    width: max-content;
+    max-width: 100%;
+    height: auto;
+    margin-top: 72px;
+    padding: 8px 18px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  #home .hero-decoration img { height: auto; pointer-events: none; }
+  #home .flower-one { width: clamp(80px, 22vw, 130px); left: -38px; top: 130px; }
+  #home .flower-two { width: clamp(105px, 28vw, 165px); left: -42px; top: 290px; }
+  #home .flower-three { width: clamp(78px, 21vw, 125px); right: -34px; top: 140px; }
+  #home .flower-four { width: clamp(100px, 27vw, 155px); right: -38px; top: 300px; }
+  #home .leaf-one { width: clamp(65px, 17vw, 100px); left: -42px; top: 250px; }
+  #home .leaf-two { width: clamp(65px, 17vw, 100px); right: -42px; top: 252px; }
+
+  #home .projects { padding: 32px var(--home-gutter); }
+  #home .project-row-first { padding-right: 0; margin-bottom: 28px; }
+  #home .project-wide { width: 100%; margin-bottom: 28px; }
+  #home .project-overlay { display: none; }
+
+  #home .about { height: auto; padding: 54px var(--home-gutter) 60px; background-size: cover; background-position: center; }
+  #home .about-inner { display: grid; gap: 40px; width: 100%; max-width: 720px; margin-inline: auto; }
+  #home .about-copy { position: static; width: min(100%, 300px); margin-inline: auto; }
+  #home .about-portrait { position: static; grid-row: 1; width: clamp(170px, 46vw, 230px); height: auto; margin-inline: auto; }
+  #home .about-copy h2 { justify-content: center; gap: 12px; margin: 0 0 24px; font-size: 32px; line-height: 1.2; white-space: nowrap; }
+  #home .about-copy h2 img { width: 140px; height: auto; }
+  #home .about-copy p { font-size: 16px; line-height: 1.4; margin-bottom: 24px; }
+  #home .about-copy p + p { margin-bottom: 0; }
+  #home .about-copy br { display: none; }
+  #home .about-flower-left { width: 40px; height: auto; left: -4px; top: 82px; }
+  #home .about-flower-right { width: 50px; height: auto; right: -8px; top: 104px; }
+
+  #home .contact { height: auto; padding: 56px var(--home-gutter) 64px; font-size: 16px; }
+  #home .contact h2 { position: static; font-size: 32px; line-height: 1.2; }
+  #home .contact-intro { position: static; width: 100%; max-width: 680px; margin-top: 20px; font-size: 16px; line-height: 1.4; }
+  #home .contact-intro br { display: none; }
+  #home .contact-form { width: 100%; max-width: 680px; margin-top: 32px; }
+  #home .form-field label { margin-bottom: 12px; }
+  #home .form-field input { height: 48px; padding: 10px 12px; font-size: 16px; }
+  #home .form-field textarea { height: 200px; padding: 10px 12px; font-size: 16px; }
+  #home .field-name, #home .field-email { margin-bottom: 44px; }
+  #home .send-message { width: auto; height: auto; margin-top: 44px; padding: 10px 24px; border: 3px solid var(--ink); border-radius: 16px; background: transparent; color: var(--ink); font-size: 16px; line-height: 1.25; }
+  #home .send-message.is-complete { background: var(--ink); color: #fff; }
+  #home .contact-validation { max-width: 100%; }
+
+  #home .site-footer {
+    height: auto;
+    padding: 40px var(--home-gutter) 32px;
+    background-size: cover;
+    background-position: center bottom;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    row-gap: 48px;
+  }
+  #home .footer-columns { position: static; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  #home .footer-columns h2 { font-size: 24px; line-height: 1.25; margin-bottom: 12px; }
+  #home .footer-pages { position: static; }
+  #home .footer-page-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 8px; padding-left: 0; }
+  #home .footer-columns a { font-size: 12px; overflow-wrap: anywhere; }
+  #home .footer-socials { min-width: 0; }
+  #home .footer-socials a { gap: 8px; }
+  #home .footer-bottom { position: static; grid-column: 1 / -1; grid-row: 2; height: auto; min-height: 48px; display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; }
+  #home .footer-bottom > a { position: static; grid-column: 1; }
+  #home .footer-bottom p { position: static; transform: none; grid-column: 2; width: auto; max-width: none; margin: 0; padding-inline: 8px; font-size: 11px; line-height: 18px; }
+  #home .footer-back-to-top { position: static; grid-column: 2; grid-row: 2; align-self: center; justify-self: end; }
+}
+
+@media (min-width: 375px) and (max-width: 1023.98px) {
+  #home { --home-gutter: 20px; }
+}
+@media (min-width: 431px) and (max-width: 1023.98px) {
+  #home { --home-gutter: 24px; }
+}
+@media (max-width: 767.98px) {
+  #home .contact { padding-inline: calc(var(--home-gutter) * 1.15); }
+  #home .send-message { padding: 6px 16px; }
+  /* Separate the edge artwork into three bands with clear space between them. */
+  #home .flower-one { width: clamp(64px, 17vw, 78px); left: -26px; top: 130px; }
+  #home .flower-three { width: clamp(60px, 16vw, 70px); right: -22px; top: 130px; }
+  #home .leaf-one { width: clamp(48px, 13vw, 56px); left: -24px; top: 276px; }
+  #home .leaf-two { width: clamp(44px, 12vw, 50px); right: -24px; top: 279px; }
+  #home .flower-two { width: clamp(80px, 20vw, 104px); left: -30px; top: 357px; }
+  #home .flower-four { width: clamp(76px, 20vw, 98px); right: -26px; top: 356px; }
+  #home .site-header { height: auto; min-height: 64px; display: grid; grid-template-columns: 1fr 44px; gap: 16px; padding-block: 12px; }
+  #home .mobile-nav-ready .mobile-menu-toggle { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; width: 44px; height: 40px; padding: 0; border: 0; background: transparent; color: var(--nav-ink); cursor: pointer; }
+  #home .primary-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; }
+  #home .primary-nav a { padding-block: 8px; }
+  #home .header-socials { grid-column: 1; grid-row: 1; height: 40px; align-items: center; padding: 0; }
+  #home .mobile-nav-ready:not(.menu-open) .primary-nav { display: none; }
+  #home .project-row { display: grid; gap: 28px; }
+  #home .project-row > .project-card { width: 100%; }
+  #home .project-wide > img { aspect-ratio: 1306 / 1270; height: auto; object-fit: cover; object-position: 74% center; }
+}
+@media (max-width: 374.98px) {
+  #home .footer-columns { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  #home { --home-gutter: 32px; font-size: 18px; }
+  #home .flower-one { width: 100px; top: 130px; }
+  #home .flower-three { width: 90px; top: 130px; }
+  #home .leaf-one { width: 65px; top: 316px; }
+  #home .leaf-two { width: 60px; top: 316px; }
+  #home .flower-two { width: 130px; top: 408px; }
+  #home .flower-four { width: 120px; top: 408px; }
+  #home .hero { padding-top: 110px; padding-bottom: 96px; }
+  #home .hero h1 { font-size: clamp(44px, 5.5vw, 56px); gap: 18px; }
+  #home .hero-amazing img { width: 320px; }
+  #home .hero-contact { margin-top: 88px; font-size: 16px; }
+  #home .projects { padding-block: 40px; }
+  #home .project-row { display: grid; gap: 28px; }
+  #home .project-row-first { grid-template-columns: 1306fr 1298fr; }
+  #home .project-row-last { grid-template-columns: 1306fr 1316fr; }
+  #home .project-row > .project-card { width: auto; }
+  #home .about { padding-block: 88px; }
+  #home .about-inner { grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: center; }
+  #home .about-copy { width: 100%; margin: 0; }
+  #home .about-portrait { grid-column: 2; grid-row: 1; width: 240px; }
+  #home .about-copy h2 { justify-content: flex-start; font-size: 32px; gap: 10px; }
+  #home .about-copy h2 img { width: 150px; }
+  #home .about-copy p { font-size: 18px; line-height: 1.5; }
+  #home .about-flower-left { top: 110px; width: 76px; left: -48px; }
+  #home .about-flower-right { top: 120px; width: 86px; right: -58px; }
+  #home .contact h2 { font-size: 40px; }
+  #home .contact-intro { font-size: 18px; }
+  #home .footer-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+}
+.home-reveal-enabled .home-reveal.is-revealed { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .home-reveal-enabled .home-reveal {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+.mobile-menu-toggle { display: none; }
+
 .hero {
   position: relative;
   height: 999px;
@@ -51,19 +219,10 @@
   }
 }
 
-:root { --editorial-side-padding: calc(var(--content-width) * .02847222); }
-
 .projects {
   max-width: var(--content-max-width);
   margin-inline: auto;
   padding: calc(51px * var(--compact-scale)) var(--editorial-side-padding) calc(50px * var(--compact-scale));
-}
-/* Ease from the original 41px inset to 64px as the frame reaches 1480px.
-   All image widths and row gaps below retain their original relationships. */
-@media (min-width: 1440px) {
-  :root {
-    --editorial-side-padding: clamp(41px, calc(41px + (100vw - 1440px) * .575), var(--desktop-side-padding));
-  }
 }
 .project-row { display: flex; align-items: flex-start; justify-content: space-between; }
 .project-card { display: block; position: relative; }
@@ -81,7 +240,7 @@
     display: block;
     position: absolute;
     inset: 0;
-    background: rgb(67 76 135 / 63%);
+    background: rgb(67 76 135 / 80%);
     opacity: 0;
     transition: opacity 225ms ease;
     pointer-events: none;
@@ -152,6 +311,41 @@
 .contact-intro { position: relative; left: 8px; width: calc(100% - 16px); margin: calc(23px * var(--compact-scale)) auto 0; font-size: calc(24px * var(--body-scale)); line-height: 1.25; }
 .contact-form { width: 74.444444%; max-width: var(--form-max-width); margin: calc(59px * var(--compact-scale)) auto 0; text-align: left; }
 .form-field label { display: block; line-height: 1.25; }
+.contact-form .form-field { position: relative; }
+.contact-validation {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  max-width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: 1px solid #37327c;
+  border-radius: 8px;
+  background: #fff;
+  color: #37327c;
+  font-size: 12px;
+  line-height: 18px;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 12%);
+}
+.contact-validation::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 4px);
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid #37327c;
+  border-left: 1px solid #37327c;
+  background: #fff;
+  transform: rotate(45deg);
+}
+.contact-validation img { flex-shrink: 0; }
 .contact-form input:focus,
 .contact-form textarea:focus { outline: none; box-shadow: none; }
 .form-field input, .form-field select, .form-field textarea {
@@ -216,4 +410,61 @@
 .send-message.is-complete {
   background: var(--ink);
   color: #fff;
+}
+
+/* Use the completed large-desktop text scale without resizing visual assets. */
+@media (min-width: 1024px) and (max-width: 1599.98px) {
+  .about-copy,
+  .contact {
+    --heading-scale: .7569;
+    --body-scale: .81;
+    --compact-scale: .8;
+    font-size: calc(24px * var(--body-scale));
+  }
+  .about-copy {
+    margin-left: max(0px, calc((100% - 1081.6px) / 2));
+    width: 520px;
+    max-width: calc(100% - 354px - 64px - max(0px, (100% - 1081.6px) / 2));
+  }
+  .contact {
+    max-width: 1184px;
+    --form-max-width: 857.6px;
+  }
+}
+
+/* Desktop About composition from the supplied Figma section reference. */
+@media (min-width: 1024px) {
+  .about-inner {
+    width: 940px;
+    max-width: calc(100% - 128px);
+    padding-inline: 0;
+    justify-content: center;
+    gap: 94px;
+  }
+  .about-copy {
+    width: 480px;
+    max-width: none;
+    flex-shrink: 0;
+    margin-left: 0;
+    margin-top: 266px;
+  }
+  .about-copy h2 {
+    gap: 19px;
+    margin-bottom: 28px;
+    font-size: 48px;
+    line-height: 65px;
+  }
+  .about-copy h2 img { width: 231px; height: 65px; }
+  .about-copy p {
+    min-height: 0;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+  .about-copy p + p { margin-bottom: 0; }
+  .about-portrait {
+    width: 310px;
+    height: auto;
+    margin-top: 260px;
+  }
 }

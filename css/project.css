@@ -1,0 +1,127 @@
+/* Uniflora composition, sized with the current homepage's shared variables. */
+.uniflora {
+  --brand-ink: #1a7848;
+  --brand-deep: #0b4b30;
+  --brand-light: #d0e7c3;
+  --uniflora-text-max: min(var(--content-max-width), calc(1200px * var(--compact-scale)));
+  color: var(--brand-ink);
+}
+.uniflora figure { margin: 0; }
+.uniflora p + p { margin-top: calc(30px * var(--compact-scale)); }
+.uniflora-image { width: 100%; height: auto; }
+
+.uniflora-hero { position: relative; }
+.uniflora-hero h1 {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uniflora-hero h1 img { width: min(46%, calc(660px * var(--compact-scale))); height: auto; }
+
+.uniflora-intro {
+  display: grid;
+  grid-template-columns: 26% 1fr;
+  gap: 6%;
+  padding-block: calc(140px * var(--compact-scale));
+  align-items: start;
+}
+.uniflora-intro h2 {
+  font-size: calc(64px * var(--heading-scale));
+  line-height: calc(77px * var(--heading-scale));
+  color: var(--brand-deep);
+}
+.uniflora-intro h2 span { display: block; }
+
+/* Text-only sections have a narrower measure than the visual containers. */
+@media (min-width: 1024px) {
+  .uniflora-intro,
+  .uniflora-explanation {
+    max-width: var(--uniflora-text-max);
+    font-size: calc(24px * min(.9, var(--body-scale)));
+  }
+  .uniflora-intro h2 {
+    font-size: calc(56px * var(--heading-scale));
+    line-height: calc(67.375px * var(--heading-scale));
+  }
+}
+
+.uniflora-explanation { padding-block: calc(140px * var(--compact-scale)); }
+
+.uniflora-equation { background: var(--brand-light); }
+.uniflora-equation .site-container,
+.uniflora-construction .site-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.uniflora-equation .site-container { padding-block: calc(64px * var(--compact-scale)); }
+.uniflora-construction .site-container { padding-block: calc(120px * var(--compact-scale)); }
+.uniflora-equation img,
+.uniflora-construction img { width: min(85%, calc(1000px * var(--compact-scale))); height: auto; }
+
+.uniflora-merchandise {
+  display: grid;
+  grid-template-columns: 36% 58%;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: calc(140px * var(--compact-scale));
+}
+.uniflora-merchandise img { width: 100%; height: auto; }
+
+.uniflora-physical { padding-block: calc(64px * var(--compact-scale)); }
+.uniflora-physical-pair {
+  display: grid;
+  grid-template-columns: 1540fr 1338fr;
+  gap: calc(51px * var(--compact-scale));
+  margin-bottom: calc(64px * var(--compact-scale));
+  align-items: start;
+}
+.uniflora-physical-pair img { width: 100%; height: auto; }
+
+.uniflora-digital {
+  position: relative;
+  overflow: hidden;
+  background-color: #001109;
+  background-image: url("../assets/images/uniflora/section%206%20background.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.uniflora-digital .site-container {
+  display: grid;
+  grid-template-columns: 45% 50%;
+  justify-content: space-between;
+  align-items: start;
+  padding-block: calc(140px * var(--compact-scale));
+  min-height: calc(635px * var(--compact-scale));
+}
+.uniflora-digital-copy { padding-top: calc(24px * var(--compact-scale)); }
+.uniflora-phone {
+  position: absolute;
+  right: 0;
+  top: calc(24px * var(--compact-scale));
+  width: min(48vw, calc(850px * var(--compact-scale)));
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  /* Match the lowercase letter height, not the two SVG artboard widths. */
+  .uniflora-construction img {
+    width: min(72.25%, calc(850px * var(--compact-scale)));
+  }
+  .uniflora-construction .site-container {
+    padding-block: calc(137.80645px * var(--compact-scale));
+  }
+  .uniflora-merchandise { max-width: var(--uniflora-text-max); }
+  .uniflora-merchandise {
+    grid-template-columns: 43% 51%;
+  }
+  .uniflora-digital .site-container {
+    max-width: var(--content-max-width);
+    grid-template-columns: 54% 40%;
+  }
+  .uniflora-phone { right: calc(-100px * var(--compact-scale)); }
+}

@@ -1,0 +1,178 @@
+/* First-pass adaptations shared only by the five case studies. */
+.uniflora-comparison-mobile { display: none; }
+.ec-applications-mobile { display: none; }
+.project-page .mobile-menu-toggle { display: none; }
+@media (max-width: 1023.98px) {
+  .project-page { --project-gutter: 16px; --project-space: clamp(48px, 8vw, 80px); font-size: 16px; line-height: 1.5; }
+  .project-page main { font-size: 16px; line-height: 1.5; }
+  .project-page main h1, .project-page main h2 { font-size: 32px; line-height: 1.2; }
+  .project-page main p + p { margin-top: 24px; }
+  .project-page main :is(p, h1, h2) { overflow-wrap: break-word; }
+  .project-page .site-container { max-width: none; padding-inline: var(--project-gutter); }
+
+  .project-page .site-header { height: auto; min-height: 73px; max-width: none; padding: 12px var(--project-gutter); gap: 20px; font-size: 16px; }
+  .project-page .primary-nav { gap: 24px; }
+  .project-page .header-socials { gap: 20px; flex-shrink: 0; }
+  .project-page .primary-nav a { padding-block: 8px; }
+  .project-page .site-footer { height: auto; padding: 40px var(--project-gutter) 32px; background-size: cover; background-position: center bottom; display: grid; grid-template-columns: minmax(0, 1fr) 44px; row-gap: 48px; }
+  .project-page .footer-columns { position: static; grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+  .project-page .footer-columns h2 { font-size: 24px; line-height: 1.25; margin-bottom: 12px; }
+  .project-page .footer-pages { position: static; }
+  .project-page .footer-page-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 8px; padding-left: 0; }
+  .project-page .footer-columns a { font-size: 12px; overflow-wrap: anywhere; }
+  .project-page .footer-socials { min-width: 0; }
+  .project-page .footer-socials a { gap: 8px; }
+  .project-page .footer-bottom { position: static; grid-column: 1 / -1; grid-row: 2; height: auto; min-height: 48px; display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; }
+  .project-page .footer-bottom > a { position: static; grid-column: 1; }
+  .project-page .footer-bottom p { position: static; transform: none; grid-column: 2; width: auto; max-width: none; margin: 0; padding-inline: 8px; font-size: 11px; line-height: 18px; }
+  .project-page .footer-back-to-top { position: static; grid-column: 2; grid-row: 2; align-self: center; justify-self: end; }
+
+  /* Uniflora: separate text, imagery, and phone from desktop fixed offsets. */
+  .uniflora-intro { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: var(--project-space); }
+  .uniflora-intro h2 span { display: inline; }
+  .uniflora-intro h2 span + span::before { content: " "; }
+  .uniflora-explanation { padding-block: var(--project-space); }
+  .uniflora-equation .site-container, .uniflora-construction .site-container { padding-block: 40px; }
+  .uniflora-equation img, .uniflora-construction img { width: 100%; height: auto; }
+  .uniflora-merchandise { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: var(--project-space); }
+  .uniflora-merchandise img { max-width: 560px; margin-inline: auto; }
+  .uniflora-physical { padding-block: 32px; }
+  .uniflora-physical-pair { gap: 24px; margin-bottom: 24px; }
+  .uniflora-digital { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: var(--project-space); }
+  .uniflora-digital .site-container { display: block; width: 100%; min-height: 0; padding-block: 0; }
+  .uniflora-digital-copy { padding: 0; }
+  .uniflora-phone { position: static; display: block; width: min(100%, 480px); height: auto; margin-left: auto; }
+
+  /* Forrest Frank: retain the different visual groups and animated process asset. */
+  .ff-copy, .ff-process > .ff-copy, .ff-emblem { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; }
+  .ff-intro, .ff-concept, .ff-process { padding-block: var(--project-space); }
+  .ff-intro .ff-copy, .ff-concept .ff-copy, .ff-emblem { left: auto; }
+  .ff-emblem { padding-top: var(--project-space); }
+  .ff-emblem p { margin: 0 0 32px; }
+  .ff-chair { width: calc(100% - 2 * var(--project-gutter)); margin-left: var(--project-gutter) !important; }
+  .ff-billboard { margin-top: 32px !important; }
+  .ff-process-grid { gap: 24px; margin: 32px var(--project-gutter) 0; }
+  .ff-process-grid figcaption { font-size: 16px; line-height: 1.4; margin-top: 12px; }
+  .ff-products, .ff-final-pair { gap: 24px; margin-inline: var(--project-gutter); padding-block: 32px; }
+
+  /* Prodigal Son: fluid editorial measures and independent image groups. */
+  .ps-editorial { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; }
+  .ps-intro, .ps-statement { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: var(--project-space); }
+  .ps-story, .ps-craft { padding-block: var(--project-space); }
+  .ps-craft h2 { margin-bottom: 24px; }
+  .ps-spreads figcaption { display: none; }
+  .ps-story-images, .ps-craft-images, .ps-making-images { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; }
+  .ps-pair { gap: 24px; }
+  .prodigal-son .ps-spreads, .prodigal-son .ps-binding, .ps-details, .ps-reading, .prodigal-son .ps-finale { margin-top: 24px; }
+
+  /* Cazac: retain the dark ground and the existing illustration sequence. */
+  .cz-intro, .cz-identity, .cz-craft { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; padding-block: var(--project-space); }
+  .cz-intro, .cz-craft { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .cz-identity-pair { gap: 24px; margin-top: 32px; }
+  .cz-craft h2 { line-height: 1.2; margin-bottom: 24px; }
+  .cz-craft > img { width: min(100%, 400px); margin-inline: auto; }
+  .cz-application-grid { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; gap: 24px; }
+  .cz-applications { padding-bottom: 32px; }
+  .cz-hero p { font-size: 16px; line-height: 1.3; }
+
+  /* English Club: the background stays a backdrop to content in normal flow. */
+  .ec-editorial { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; }
+  .ec-intro, .ec-role, .ec-classes, .ec-camp { padding-block: var(--project-space); }
+  .ec-intro-columns { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .ec-intro-columns h2 { margin-top: 0; }
+  .ec-intro > p { margin-top: 24px; }
+  .ec-digital { aspect-ratio: auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; padding: var(--project-space) var(--project-gutter); }
+  .ec-digital-copy { position: relative; left: auto; top: auto; width: auto; translate: none; }
+  .ec-digital .ec-phones { position: relative; left: auto; top: auto; width: min(100%, 520px); height: auto; margin-inline: auto; }
+  .english-club .ec-applications, .ec-city-images, .english-club .ec-camp-applications, .english-club .ec-finale { width: calc(100% - 2 * var(--project-gutter)); margin-inline: auto; }
+  .english-club .ec-applications, .english-club .ec-class-photo, .english-club .ec-finale { margin-top: 24px; }
+  .ec-collateral { gap: 24px; }
+  .english-club .ec-finale { padding-bottom: 32px; }
+}
+
+@media (min-width: 375px) and (max-width: 1023.98px) {
+  .project-page { --project-gutter: 20px; }
+}
+@media (min-width: 431px) and (max-width: 1023.98px) {
+  .project-page { --project-gutter: 24px; }
+}
+@media (max-width: 599.98px) {
+  .ec-applications > img, .ec-camp-applications > img { display: none; }
+  .english-club .ec-camp-applications { aspect-ratio: auto; }
+  .ec-applications-mobile { display: grid; gap: 24px; }
+  .ec-applications-mobile svg { display: block; width: 100%; height: auto; overflow: hidden; }
+  .ec-digital .ec-phones { order: -1; z-index: 1; }
+  .cz-application-grid { gap: 12px; }
+  .cz-craft > img { width: min(65%, 260px); }
+  .ps-craft-heading-tail { display: block; }
+  .forrest-frank .ff-process + figure > .ff-full {
+    aspect-ratio: 2880 / 2532.5;
+    height: calc(100vw * 2532.5 / 2880);
+    object-fit: cover;
+    object-position: center;
+  }
+  .forrest-frank :is(.ff-process, .ff-products) + figure > .ff-full {
+    width: calc(100% - 2 * var(--project-gutter));
+    margin-inline: auto;
+  }
+  .forrest-frank .ff-products + figure > .ff-full {
+    height: calc(100vw * 1728 / 2880);
+    object-fit: cover;
+    object-position: center;
+  }
+  .uniflora > figure:last-child > .uniflora-image {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 65% center;
+  }
+  .uniflora-comparison > .uniflora-image { display: none; }
+  .uniflora-comparison-mobile { display: grid; gap: 24px; }
+  .uniflora-comparison-mobile svg { display: block; width: 100%; height: auto; overflow: hidden; }
+  /* Match the lowercase letter height rather than the SVG artboard widths. */
+  .uniflora-construction img { width: 82.05%; }
+  .uniflora-construction .site-container { min-height: calc(80px + (100vw - 2 * var(--project-gutter)) * 184 / 775); }
+  .project-page .primary-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .project-page .header-socials { align-self: center; }
+  .uniflora-physical-pair, .ff-process-grid, .ff-products, .ff-final-pair,
+  .ps-pair, .cz-identity-pair, .ec-collateral { grid-template-columns: minmax(0, 1fr); }
+  .ff-process-grid > figure { width: min(100%, 360px); margin-inline: auto; }
+  .ps-pair { aspect-ratio: auto; grid-template-rows: auto; }
+  .ps-pair img { height: auto; }
+  .ps-spreads figcaption span { position: static; width: auto; }
+  .ff-hero { aspect-ratio: auto; padding: 36px var(--project-gutter) 28px; text-align: center; }
+  .ff-hero > img { position: absolute; inset: 0; }
+  .ff-hero h1 { position: relative; top: auto; left: auto; transform: none; width: min(85%, 380px); margin: 16px auto 32px; }
+  .ff-hero-kicker, .ff-hero-tagline, .ff-hero-tour { position: relative; top: auto; bottom: auto; left: auto; right: auto; width: auto; }
+  .ff-hero-kicker { font-size: 9.8px; }
+  .ff-hero-tagline, .ff-hero-tour { display: none; }
+  .forrest-frank .ff-hero-tour { margin-top: 8px; }
+}
+@media (max-width: 374.98px) {
+  .project-page .footer-columns { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767.98px) {
+  .project-page .site-header { height: auto; min-height: 64px; display: grid; grid-template-columns: 1fr 44px; gap: 16px; padding-block: 12px; font-size: 18px; }
+  .project-page .mobile-nav-ready .mobile-menu-toggle { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; width: 44px; height: 40px; padding: 0; border: 0; background: transparent; color: var(--nav-ink); cursor: pointer; }
+  .project-page .primary-nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; }
+  .project-page .primary-nav a { padding-block: 8px; }
+  .project-page .header-socials { grid-column: 1; grid-row: 1; height: 40px; align-items: center; padding: 0; }
+  .project-page .mobile-nav-ready:not(.menu-open) .primary-nav { display: none; }
+}
+@media (min-width: 600px) and (max-width: 1023.98px) {
+  .ff-hero-kicker { top: 12%; }
+  .ff-hero h1 { top: 28%; }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .project-page { --project-gutter: 32px; }
+  .project-page main { font-size: 18px; }
+  .project-page main h1, .project-page main h2 { font-size: 36px; }
+  .project-page .footer-columns { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .uniflora-intro { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 32px; }
+  .uniflora-merchandise { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 32px; }
+  .uniflora-digital { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 24px; padding: 48px var(--project-gutter) 0; }
+  .uniflora-digital .site-container { padding: 0 0 48px; }
+  .uniflora-phone { align-self: end; }
+  .ps-intro, .ps-statement, .cz-intro, .ec-intro-columns { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 32px; }
+  .cz-craft { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; }
+  .ec-digital { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 32px; }
+}

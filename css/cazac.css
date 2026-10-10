@@ -1,0 +1,54 @@
+/* Geometry measured from the 1440px Cazac reference. */
+.cazac {
+  background: #252525;
+  color: #ffefd2;
+  font-size: 20px;
+  line-height: 28px;
+}
+.cazac figure { margin: 0; }
+.cazac img { width: 100%; height: auto; }
+.cazac h2 { font-size: 48px; line-height: 60px; }
+.cazac p + p { margin-top: 28px; }
+.cazac strong { font-family: var(--heading-font); font-weight: 500; line-height: 1; }
+.cz-hero { position: relative; }
+.cz-hero h1 { position: absolute; top: 30.578512%; left: 35.694444%; width: 28.541667%; }
+.cz-hero p { position: absolute; top: 51.928375%; width: 100%; text-align: center; font-size: 24px; line-height: 30px; }
+.cz-intro {
+  display: grid;
+  grid-template-columns: 400fr 500fr;
+  gap: 85px;
+  width: 68.402778%;
+  margin-left: 15.277778%;
+  padding-block: 122px 119px;
+}
+.cz-intro > *, .cz-craft > * { min-width: 0; overflow-wrap: break-word; }
+.cz-identity { width: 67.777778%; margin-left: 15.763889%; padding-block: 118px 125px; }
+.cz-identity-pair {
+  display: grid;
+  grid-template-columns: 1156fr 1108fr;
+  gap: 52px;
+  margin-top: 72px;
+  align-items: end;
+}
+.cz-label { aspect-ratio: 1440 / 892; }
+.cz-label img { height: 100%; object-fit: cover; }
+.cz-craft {
+  display: grid;
+  grid-template-columns: 520fr 305fr;
+  gap: 165px;
+  width: 68.75%;
+  margin-left: 15.694444%;
+  padding-block: 125px 122px;
+  align-items: center;
+}
+.cz-craft h2 { line-height: 66px; margin-bottom: 36px; }
+.cz-applications { padding-bottom: 121px; }
+.cz-application-grid {
+  width: 88.055556%;
+  margin-left: 5.833333%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 54px;
+  row-gap: 55px;
+}
+.cz-application-grid svg { display: block; width: 100%; aspect-ratio: 607 / 729; }

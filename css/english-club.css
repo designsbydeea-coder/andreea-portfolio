@@ -1,0 +1,38 @@
+/* Composition measured from the 1440px English Club desktop reference. */
+.english-club {
+  background: #fff;
+  color: #052644;
+  font-size: 20px;
+  line-height: 28px;
+}
+.english-club figure { margin: 0; }
+.english-club img { width: 100%; height: auto; }
+.english-club h2 { font-size: 48px; line-height: 54px; }
+.ec-editorial { width: 70.277778%; margin-left: 14.861111%; }
+.ec-hero { aspect-ratio: 1440 / 813; }
+.ec-hero img { height: 100%; object-fit: cover; }
+.ec-intro { padding-block: 100px 96px; }
+.ec-intro-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 388fr) minmax(0, 576fr);
+  gap: 48px;
+  align-items: center;
+}
+.ec-intro-columns > * { min-width: 0; overflow-wrap: break-word; }
+.ec-intro-columns h2 { align-self: start; margin-top: 8px; }
+.ec-intro > p { margin-top: 32px; }
+.ec-role { padding-block: 116px 119px; }
+.ec-digital { position: relative; aspect-ratio: 1440 / 742; color: #fff; }
+.ec-digital .ec-digital-background { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+.ec-digital-copy { position: absolute; left: 5.486111%; width: 40.625%; top: calc(50% - 8px); translate: 0 -50%; }
+.ec-digital-copy p + p { margin-top: 28px; }
+.ec-digital .ec-phones { position: absolute; left: 54.097222%; top: 14.959569%; width: 40.763889%; }
+.english-club .ec-applications { width: 88.888889%; margin-left: 5.555556%; margin-top: 52px; }
+.ec-classes { padding-block: 108px 109px; }
+.ec-city-images { width: 88.75%; margin-left: 5.486111%; }
+.ec-collateral { display: grid; grid-template-columns: minmax(0, 1136fr) minmax(0, 1438fr); gap: 49px; align-items: start; }
+.english-club .ec-class-photo { margin-top: 48px; }
+.ec-camp { padding-block: 106px 102px; }
+.english-club .ec-camp-applications { width: 89.166667%; margin-left: 5.347222%; aspect-ratio: 1284 / 690; }
+.ec-camp-applications img { height: 100%; object-fit: cover; }
+.english-club .ec-finale { width: 89.027778%; margin-left: 5.347222%; margin-top: 50px; padding-bottom: 54px; }

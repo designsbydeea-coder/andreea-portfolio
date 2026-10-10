@@ -7,17 +7,23 @@
   <title>Andreea Onu — Graphic Designer</title>
   <link rel="stylesheet" href="css/shared.css">
   <link rel="stylesheet" href="css/home.css">
+  <script src="js/home-reveal.js"></script>
   <script src="js/contact.js" defer></script>
+  <script src="js/back-to-top.js" defer></script>
+  <script src="js/home-navigation.js" defer></script>
 </head>
 <body id="home">
-  <header class="site-header">
-    <nav class="primary-nav" aria-label="Main navigation">
+  <header class="site-header" id="top" tabindex="-1">
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="home-navigation" aria-label="Open navigation">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="primary-nav" id="home-navigation" aria-label="Main navigation">
       <a href="#home" aria-current="page">home</a>
       <a href="#work">work</a>
       <a href="#about">about</a>
       <a href="#contact">connect</a>
     </nav>
-    <div class="header-socials">
+    <div class="header-socials" id="home-socials">
       <a href="https://www.instagram.com/andreea_onu/" aria-label="Andreea on Instagram"><img src="assets/icons/instagram.svg" width="20" height="21" alt=""></a>
       <a href="https://www.linkedin.com/in/andreea-onu/" aria-label="Andreea on LinkedIn"><img src="assets/icons/linkedin.svg" width="20" height="20" alt=""></a>
     </div>
@@ -43,35 +49,35 @@
       <a class="hero-contact" href="#contact">LET’S WORK TOGETHER</a>
     </section>
 
-    <section class="projects" id="work" aria-label="Selected graphic design projects">
+    <section class="projects home-reveal" id="work" aria-label="Selected graphic design projects">
       <!-- Link-ready cards: add href values when the project pages are available. -->
       <div class="project-row project-row-first">
-        <a class="project-card">
+        <a class="project-card" href="/projects/uniflora/">
         <img src="assets/images/home/projects-uniflora.png" width="1306" height="1270" alt="Uniflora — botanical brand identity">
           <span class="project-overlay" aria-hidden="true"><span class="project-label">uniflora | brand identity</span></span>
         </a>
-        <a class="project-card">
+        <a class="project-card" href="/projects/forrest-frank/">
         <img src="assets/images/home/projects-forrest%20frank.png" width="1298" height="1270" alt="Forrest Frank — illustrated concert poster on an orange seat">
           <span class="project-overlay" aria-hidden="true"><span class="project-label">forrest frank | poster design</span></span>
         </a>
       </div>
-      <a class="project-card project-wide">
+      <a class="project-card project-wide" href="/projects/prodigal-son/">
         <img src="assets/images/home/projects-prodigal%20son.png" width="2706" height="1346" alt="The Prodigal Son — book design displayed on a chair">
         <span class="project-overlay" aria-hidden="true"><span class="project-label">prodigal son | editorial design</span></span>
       </a>
       <div class="project-row project-row-last">
-        <a class="project-card">
+        <a class="project-card" href="/projects/cazac/">
         <img src="assets/images/home/projects-cazac.png" width="1306" height="1284" alt="Cazac — wine label and packaging design">
           <span class="project-overlay" aria-hidden="true"><span class="project-label">cazac | brand identity, packaging design</span></span>
         </a>
-        <a class="project-card">
+        <a class="project-card" href="/projects/english-club/">
         <img src="assets/images/home/projects-english%20club.png" width="1316" height="1284" alt="English Club — Hollywood Week 2026 graphic design">
           <span class="project-overlay" aria-hidden="true"><span class="project-label">english club | event identity</span></span>
         </a>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
+    <section class="about home-reveal" id="about" aria-labelledby="about-title">
       <img class="about-flower-left" src="assets/icons/about%20flower.svg" alt="">
       <img class="about-flower-right" src="assets/icons/about%20flower%202.svg" alt="">
       <div class="about-inner">
@@ -90,7 +96,7 @@
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
+    <section class="contact home-reveal" id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Let’s work together</h2>
       <p class="contact-intro">I'm open to full-time design opportunities, collaborations, and freelance projects.<br>
         If you think I'd be a good fit, I would love to hear from you.</p>
@@ -138,6 +144,11 @@
       <a href="#home" aria-label="Back to home"><img src="assets/icons/portrait%20drawing.svg" width="48" height="48" alt=""></a>
       <p>Copyright 2026 Andreea Onu</p>
     </div>
+    <a class="footer-back-to-top" href="#top" aria-label="Back to top">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" aria-hidden="true" focusable="false">
+        <path d="M3 11L11 3L19 11" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </footer>
 </body>
 </html>
