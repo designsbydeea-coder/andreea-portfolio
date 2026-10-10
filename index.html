@@ -7,6 +7,7 @@
   <title>Andreea Onu — Graphic Designer</title>
   <link rel="stylesheet" href="css/shared.css">
   <link rel="stylesheet" href="css/home.css">
+  <script src="js/contact.js" defer></script>
 </head>
 <body id="home">
   <header class="site-header">
@@ -14,13 +15,11 @@
       <a href="#home" aria-current="page">home</a>
       <a href="#work">work</a>
       <a href="#about">about</a>
-      <!-- Destination pending: retain the reference label without a broken link. -->
-      <a role="link" aria-disabled="true" title="Shop link coming soon">shop</a>
-      <a href="#contact">contact</a>
+      <a href="#contact">connect</a>
     </nav>
     <div class="header-socials">
       <a href="https://www.instagram.com/andreea_onu/" aria-label="Andreea on Instagram"><img src="assets/icons/instagram.svg" width="20" height="21" alt=""></a>
-      <a role="link" aria-disabled="true" aria-label="Andreea on LinkedIn — link pending"><img src="assets/icons/linkedin.svg" width="20" height="20" alt=""></a>
+      <a href="https://www.linkedin.com/in/andreea-onu/" aria-label="Andreea on LinkedIn"><img src="assets/icons/linkedin.svg" width="20" height="20" alt=""></a>
     </div>
   </header>
 
@@ -45,20 +44,37 @@
     </section>
 
     <section class="projects" id="work" aria-label="Selected graphic design projects">
+      <!-- Link-ready cards: add href values when the project pages are available. -->
       <div class="project-row project-row-first">
+        <a class="project-card">
         <img src="assets/images/home/projects-uniflora.png" width="1306" height="1270" alt="Uniflora — botanical brand identity">
+          <span class="project-overlay" aria-hidden="true"><span class="project-label">uniflora | brand identity</span></span>
+        </a>
+        <a class="project-card">
         <img src="assets/images/home/projects-forrest%20frank.png" width="1298" height="1270" alt="Forrest Frank — illustrated concert poster on an orange seat">
+          <span class="project-overlay" aria-hidden="true"><span class="project-label">forrest frank | poster design</span></span>
+        </a>
       </div>
-      <img class="project-wide" src="assets/images/home/projects-prodigal%20son.png" width="2706" height="1346" alt="The Prodigal Son — book design displayed on a chair">
+      <a class="project-card project-wide">
+        <img src="assets/images/home/projects-prodigal%20son.png" width="2706" height="1346" alt="The Prodigal Son — book design displayed on a chair">
+        <span class="project-overlay" aria-hidden="true"><span class="project-label">prodigal son | editorial design</span></span>
+      </a>
       <div class="project-row project-row-last">
+        <a class="project-card">
         <img src="assets/images/home/projects-cazac.png" width="1306" height="1284" alt="Cazac — wine label and packaging design">
+          <span class="project-overlay" aria-hidden="true"><span class="project-label">cazac | brand identity, packaging design</span></span>
+        </a>
+        <a class="project-card">
         <img src="assets/images/home/projects-english%20club.png" width="1316" height="1284" alt="English Club — Hollywood Week 2026 graphic design">
+          <span class="project-overlay" aria-hidden="true"><span class="project-label">english club | event identity</span></span>
+        </a>
       </div>
     </section>
 
     <section class="about" id="about" aria-labelledby="about-title">
       <img class="about-flower-left" src="assets/icons/about%20flower.svg" alt="">
       <img class="about-flower-right" src="assets/icons/about%20flower%202.svg" alt="">
+      <div class="about-inner">
       <div class="about-copy">
         <h2 id="about-title">Hi, I'm <img src="assets/icons/andreea.svg" width="231" height="65" alt="Andreea"></h2>
         <p>A graphic designer who believes that with<br>
@@ -69,16 +85,16 @@
           utilitarian. That’s why I enjoy exploring<br>
           symbols and ideas that create meaning<br>
           and a lasting impact.</p>
-        <a class="resume-link" role="link" aria-disabled="true" title="Resume file pending">see resume</a>
       </div>
       <img class="about-portrait" src="assets/images/home/about-portrait.png" width="708" height="716" alt="Andreea Onu">
+      </div>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Let’s work together</h2>
-      <p class="contact-intro">I'm open to full-time design opportunities, collaborations, and select freelance projects.<br>
-        If you think we'd be a good fit, I'd love to hear from you.</p>
-      <!-- Submission remains disabled until a destination and dropdown choices are supplied. -->
+      <p class="contact-intro">I'm open to full-time design opportunities, collaborations, and freelance projects.<br>
+        If you think I'd be a good fit, I would love to hear from you.</p>
+      <!-- UI-only validation; message delivery will be connected later. -->
       <form class="contact-form" aria-describedby="form-status">
         <div class="form-field field-name">
           <label for="contact-name">Name</label>
@@ -88,20 +104,12 @@
           <label for="contact-email">Email Address</label>
           <input id="contact-email" name="email" type="email" autocomplete="email" required>
         </div>
-        <div class="form-field field-subject">
-          <label for="contact-subject">I’m reaching out about</label>
-          <div class="select-wrap">
-            <select id="contact-subject" name="subject" required>
-              <option value="" selected disabled>Select an option</option>
-            </select>
-          </div>
-        </div>
         <div class="form-field field-message">
-          <label for="contact-message">Tell me a bit more</label>
+          <label for="contact-message">Message</label>
           <textarea id="contact-message" name="message" required></textarea>
         </div>
-        <p class="visually-hidden" id="form-status">This form is not connected yet. Please email deea.onu@gmail.com to get in touch.</p>
-        <button class="send-message" type="submit" disabled title="Form not connected yet — please email deea.onu@gmail.com">SEND MESSAGE</button>
+        <p class="visually-hidden" id="form-status" role="status">This form is not connected yet. Please email deea.onu@gmail.com to get in touch.</p>
+        <button class="send-message" type="submit" disabled title="Form not connected yet — please email deea.onu@gmail.com">submit</button>
       </form>
     </section>
   </main>
@@ -111,19 +119,19 @@
       <div>
         <h2>Contact</h2>
         <a href="mailto:deea.onu@gmail.com">deea.onu@gmail.com</a>
-        <a href="#contact">contact</a>
+        <a href="#contact">connect</a>
       </div>
       <nav class="footer-pages" aria-label="Footer navigation">
         <h2>Web Pages</h2>
         <div class="footer-page-links">
           <a href="#home">home</a><a href="#about">about</a>
-          <a href="#work">work</a><a href="#contact">contact</a>
+          <a href="#work">work</a><a href="#contact">connect</a>
         </div>
       </nav>
       <div class="footer-socials">
         <h2>Socials</h2>
         <a href="https://www.instagram.com/andreea_onu/"><span class="social-icon social-instagram" aria-hidden="true"></span>andreea_onu</a>
-        <a role="link" aria-disabled="true" title="LinkedIn link pending"><span class="social-icon social-linkedin" aria-hidden="true"></span>Andreea Onu</a>
+        <a href="https://www.linkedin.com/in/andreea-onu/"><span class="social-icon social-linkedin" aria-hidden="true"></span>Andreea Onu</a>
       </div>
     </div>
     <div class="footer-bottom">
