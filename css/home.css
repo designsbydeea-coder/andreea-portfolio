@@ -72,7 +72,7 @@
   #home .form-field input { height: 48px; padding: 10px 12px; font-size: 16px; }
   #home .form-field textarea { height: 200px; padding: 10px 12px; font-size: 16px; }
   #home .field-name, #home .field-email { margin-bottom: 44px; }
-  #home .send-message { width: auto; height: auto; margin-top: 44px; padding: 10px 24px; border: 3px solid var(--ink); border-radius: 16px; background: transparent; color: var(--ink); font-size: 16px; line-height: 1.25; }
+  #home .send-message { width: auto; height: auto; margin-top: 44px; padding: 8.5px 20.4px; border: 3px solid var(--ink); border-radius: 13.6px; background: transparent; color: var(--ink); font-size: 16px; line-height: 1.25; }
   #home .send-message.is-complete { background: var(--ink); color: #fff; }
   #home .contact-validation { max-width: 100%; }
 
@@ -106,7 +106,7 @@
 }
 @media (max-width: 767.98px) {
   #home .contact { padding-inline: calc(var(--home-gutter) * 1.15); }
-  #home .send-message { padding: 6px 16px; }
+  #home .send-message { padding: 5.1px 13.6px; }
   /* Separate the edge artwork into three bands with clear space between them. */
   #home .flower-one { width: clamp(64px, 17vw, 78px); left: -26px; top: 130px; }
   #home .flower-three { width: clamp(60px, 16vw, 70px); right: -22px; top: 130px; }
@@ -188,7 +188,6 @@
 .hero-second-line { top: 249px; }
 .hero-amazing {
   --hero-word-width: 395px;
-  --hero-word-interval: 2250ms;
   top: 361px;
   display: grid;
   grid-template-columns: var(--hero-word-width);
@@ -196,6 +195,23 @@
   justify-content: center;
   padding-left: 12px;
 }
+.hero-word-button {
+  display: grid;
+  grid-template-columns: var(--hero-word-width);
+  grid-template-rows: calc(var(--hero-word-width) * 81 / 395);
+  justify-content: center;
+  justify-self: center;
+  width: calc(var(--hero-word-width) * 1.173088);
+  height: calc(var(--hero-word-width) * 81 / 395);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+  transform-origin: center;
+}
+.hero-word-button:focus-visible { outline: 2px solid #fff; outline-offset: 6px; }
 .hero-amazing img {
   grid-area: 1 / 1;
   align-self: start;
@@ -205,21 +221,26 @@
   height: auto;
   margin-top: calc(var(--hero-word-width) * var(--word-top, 0));
   opacity: 0;
+  pointer-events: none;
 }
 /* Match AMAZING's main stroke height and baseline, excluding SVG padding.
    Its 5–95% ink band is y=10.75–72; both other bands are 57.5px high. */
-.hero-word-good { --word-width: .609466; --word-top: -.022675; --word-phase: 0; }
-.hero-word-stunning { --word-width: 1.173088; --word-top: .002270; --word-phase: 2; }
-.hero-word-amazing { --word-phase: 1; }
-.hero-amazing .hero-word-good { opacity: 1; }
-.hero-amazing.is-cycling img {
-  animation: hero-word-cycle calc(var(--hero-word-interval) * 3) steps(1, end) infinite;
-  animation-delay: calc(var(--hero-word-interval) * var(--word-phase) * -1);
+.hero-word-good { --word-width: .609466; --word-top: -.022675; }
+.hero-word-stunning { --word-width: 1.173088; --word-top: .002270; }
+.hero-amazing img.is-current { opacity: 1; }
+.hero-word-button.is-ready img { transition: opacity 250ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .hero-word-button:hover { animation: hero-word-wobble 400ms ease-in-out; }
 }
-.hero-amazing.is-paused img { animation-play-state: paused; }
-@keyframes hero-word-cycle {
-  0% { opacity: 1; }
-  33.333333333%, 100% { opacity: 0; }
+@keyframes hero-word-wobble {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-1px); }
+  60% { transform: translateY(1px); }
+  85% { transform: translateY(-.5px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-word-button:hover { animation: none; }
+  .hero-word-button.is-ready img { transition: none; }
 }
 .hero-last-line { top: 465px; }
 .hero-arrows { position: absolute; top: 595px; left: calc(50% - 111px); }
@@ -431,9 +452,9 @@
   .send-message {
     width: auto;
     height: auto;
-    padding: 10px 24px;
+    padding: 8.5px 20.4px;
     border: 3px solid var(--ink);
-    border-radius: 16px;
+    border-radius: 13.6px;
     color: var(--ink);
     background: transparent;
     font-size: calc(24px * var(--body-scale));
