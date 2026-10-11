@@ -49,8 +49,8 @@
   .ff-intro .ff-copy, .ff-concept .ff-copy, .ff-emblem { left: auto; }
   .ff-emblem { padding-top: var(--project-space); }
   .ff-emblem p { margin: 0 0 32px; }
-  .ff-chair { width: calc(100% - 2 * var(--project-gutter)); margin-left: var(--project-gutter) !important; }
-  .ff-billboard { margin-top: 32px !important; }
+  .forrest-frank .ff-chair { width: calc(100% - 2 * var(--project-gutter)); margin-left: var(--project-gutter); }
+  .forrest-frank .ff-billboard { margin-top: 32px; }
   .ff-process-grid { gap: 24px; margin: 32px var(--project-gutter) 0; }
   .ff-process-grid figcaption { font-size: 16px; line-height: 1.4; margin-top: 12px; }
   .ff-products, .ff-final-pair { gap: 24px; margin-inline: var(--project-gutter); padding-block: 32px; }

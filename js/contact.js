@@ -1,33 +1,25 @@
-// UI-only feedback. Connect delivery before presenting a message as sent.
 const contactForm = document.querySelector('.contact-form');
 const submitButton = contactForm.querySelector('.send-message');
 const formStatus = document.getElementById('form-status');
 const requiredFields = [...contactForm.querySelectorAll('[required]')];
-const pendingMessage = 'Message delivery is not connected yet.';
+let submitting = false;
 let invalidField = null;
+
 const validationMessage = document.createElement('div');
 validationMessage.id = 'contact-validation';
 validationMessage.className = 'contact-validation';
 validationMessage.setAttribute('role', 'alert');
 const validationIcon = document.createElement('img');
-validationIcon.src = 'assets/icons/exclamation%20mark.svg';
+validationIcon.src = new URL('../assets/icons/exclamation mark.svg', import.meta.url).href;
 validationIcon.alt = '';
 validationIcon.width = 18;
 validationIcon.height = 18;
 const validationText = document.createElement('span');
 validationMessage.append(validationIcon, validationText);
 
-// Keep native constraints, but present their errors through the custom UI.
+// Retain HTML constraints and the native POST fallback if JavaScript is unavailable.
 contactForm.noValidate = true;
-
-submitButton.disabled = false;
-submitButton.title = pendingMessage;
-
-function validateFields() {
-  for (const field of requiredFields) {
-    field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
-  }
-}
+submitButton.setAttribute('aria-live', 'polite');
 
 function clearValidationMessage() {
   if (invalidField) {
@@ -47,39 +39,61 @@ function validationTextFor(field) {
     : field.validity.typeMismatch ? 'please enter a valid email address' : field.validationMessage;
 }
 
-function showValidationMessage(field) {
-  clearValidationMessage();
-  invalidField = field;
-  field.setAttribute('aria-invalid', 'true');
-  field.setAttribute('aria-describedby', [field.getAttribute('aria-describedby'), validationMessage.id]
-    .filter(Boolean).join(' '));
-  validationText.textContent = validationTextFor(field);
-  field.focus();
-  field.closest('.form-field').append(validationMessage);
+function showStatus(message = '') {
+  formStatus.textContent = message;
+  formStatus.hidden = !message;
 }
 
 contactForm.addEventListener('input', () => {
-  validateFields();
+  for (const field of requiredFields) {
+    field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
+  }
   if (invalidField) {
     if (invalidField.validity.valid) clearValidationMessage();
     else validationText.textContent = validationTextFor(invalidField);
   }
   submitButton.classList.remove('is-complete');
-  submitButton.title = pendingMessage;
-  formStatus.textContent = pendingMessage;
+  submitButton.textContent = 'submit';
+  showStatus();
 });
 
-contactForm.addEventListener('submit', (event) => {
+contactForm.addEventListener('submit', async event => {
   event.preventDefault();
-  validateFields();
+  if (submitting) return;
+  showStatus();
+  for (const field of requiredFields) {
+    field.setCustomValidity(field.value.trim() ? '' : 'Please fill out this field.');
+  }
   const firstInvalidField = requiredFields.find(field => !field.validity.valid);
+  clearValidationMessage();
   if (firstInvalidField) {
-    showValidationMessage(firstInvalidField);
+    invalidField = firstInvalidField;
+    invalidField.setAttribute('aria-invalid', 'true');
+    invalidField.setAttribute('aria-describedby', [invalidField.getAttribute('aria-describedby'), validationMessage.id].filter(Boolean).join(' '));
+    validationText.textContent = validationTextFor(invalidField);
+    invalidField.focus();
+    invalidField.closest('.form-field').append(validationMessage);
     return;
   }
-  clearValidationMessage();
 
-  submitButton.classList.add('is-complete');
-  formStatus.textContent = `Form complete. ${pendingMessage}`;
-  submitButton.title = formStatus.textContent;
+  submitting = true;
+  submitButton.disabled = true;
+  submitButton.classList.remove('is-complete');
+  contactForm.setAttribute('aria-busy', 'true');
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(contactForm)).toString()
+    });
+    if (!response.ok) throw new Error('Submission rejected');
+    submitButton.classList.add('is-complete');
+    submitButton.textContent = 'submission received';
+  } catch {
+    showStatus('Your message could not be sent. Please try again.');
+  } finally {
+    submitting = false;
+    submitButton.disabled = false;
+    contactForm.removeAttribute('aria-busy');
+  }
 });

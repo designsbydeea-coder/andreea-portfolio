@@ -346,6 +346,8 @@
   transform: rotate(45deg);
 }
 .contact-validation img { flex-shrink: 0; }
+.contact-form { position: relative; }
+.contact-feedback[hidden] { display: none; }
 .contact-form input:focus,
 .contact-form textarea:focus { outline: none; box-shadow: none; }
 .form-field input, .form-field select, .form-field textarea {
@@ -407,6 +409,7 @@
   }
 }
 
+#home .send-message:hover,
 .send-message.is-complete {
   background: var(--ink);
   color: #fff;
