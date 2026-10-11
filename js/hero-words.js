@@ -17,4 +17,4 @@ setInterval(() => {
   currentWord = (currentWord + 1) % words.length;
   heroWord.src = words[currentWord].src;
   heroWord.alt = words[currentWord].alt;
-}, 2500);
+}, 2250);
