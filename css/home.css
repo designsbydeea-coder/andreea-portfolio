@@ -188,7 +188,7 @@
 .hero-first-line { top: 164px; }
 .hero-second-line { top: 249px; }
 .hero-amazing { top: 361px; display: flex; justify-content: center; padding-left: 12px; }
-.hero-amazing img { width: 395px; height: 81px; }
+.hero-amazing img { width: 395px; height: 81px; aspect-ratio: 395 / 81; object-fit: contain; }
 .hero-last-line { top: 465px; }
 .hero-arrows { position: absolute; top: 595px; left: calc(50% - 111px); }
 .hero-contact {
