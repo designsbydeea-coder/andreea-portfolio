@@ -1,20 +1,12 @@
-const heroWord = document.querySelector('.hero-amazing img');
-const words = [
-  { src: new URL('../assets/icons/hero_good.svg', import.meta.url).href, alt: 'GOOD' },
-  { src: new URL('../assets/icons/hero_stunning.svg', import.meta.url).href, alt: 'STUNNING' },
-  { src: new URL('../assets/icons/hero_amazing.svg', import.meta.url).href, alt: 'AMAZING' }
-];
+const heroWords = document.querySelector('.hero-amazing');
 
-// Load each SVG before cycling to avoid a blank frame when the word changes.
-await Promise.all(words.map(word => {
-  const image = new Image();
-  image.src = word.src;
-  return image.decode();
-}));
+// Start one shared CSS timeline only when every SVG is ready to paint.
+await Promise.all([...heroWords.querySelectorAll('img')].map(image => image.decode()));
 
-let currentWord = 0;
-setInterval(() => {
-  currentWord = (currentWord + 1) % words.length;
-  heroWord.src = words[currentWord].src;
-  heroWord.alt = words[currentWord].alt;
-}, 2250);
+function syncVisibility() {
+  heroWords.classList.toggle('is-paused', document.hidden);
+}
+
+document.addEventListener('visibilitychange', syncVisibility);
+syncVisibility();
+heroWords.classList.add('is-cycling');

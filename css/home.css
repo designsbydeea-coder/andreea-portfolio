@@ -23,8 +23,7 @@
   }
   #home .hero h1 { width: 100%; display: grid; gap: 12px; font-size: clamp(26px, 7.5vw, 48px); line-height: 1.2; }
   #home .hero h1 span { position: static; width: auto; }
-  #home .hero-amazing { padding: 8px 0 0; }
-  #home .hero-amazing img { width: min(55vw, 300px); height: auto; }
+  #home .hero-amazing { --hero-word-width: min(55vw, 300px); padding: 8px 0 0; }
   #home .hero-arrows { position: static; width: clamp(130px, 32vw, 180px); height: auto; margin-top: 32px; }
   #home .hero-contact {
     position: static;
@@ -138,7 +137,7 @@
   #home .flower-four { width: 120px; top: 408px; }
   #home .hero { padding-top: 110px; padding-bottom: 96px; }
   #home .hero h1 { font-size: clamp(44px, 5.5vw, 56px); gap: 18px; }
-  #home .hero-amazing img { width: 320px; }
+  #home .hero-amazing { --hero-word-width: 320px; }
   #home .hero-contact { margin-top: 88px; font-size: 16px; }
   #home .projects { padding-block: 40px; }
   #home .project-row { display: grid; gap: 28px; }
@@ -187,10 +186,41 @@
 .hero h1 span { position: absolute; left: var(--content-inset); width: var(--content-width); }
 .hero-first-line { top: 164px; }
 .hero-second-line { top: 249px; }
-.hero-amazing { top: 361px; display: flex; justify-content: center; padding-left: 12px; }
-.hero-amazing img { width: 395px; height: 81px; aspect-ratio: 395 / 81; object-fit: contain; }
-.hero-amazing img[alt="GOOD"],
-.hero-amazing img[alt="STUNNING"] { transform: scale(1.1); }
+.hero-amazing {
+  --hero-word-width: 395px;
+  --hero-word-interval: 2250ms;
+  top: 361px;
+  display: grid;
+  grid-template-columns: var(--hero-word-width);
+  grid-template-rows: calc(var(--hero-word-width) * 81 / 395);
+  justify-content: center;
+  padding-left: 12px;
+}
+.hero-amazing img {
+  grid-area: 1 / 1;
+  align-self: start;
+  justify-self: center;
+  width: calc(var(--hero-word-width) * var(--word-width, 1));
+  max-width: none;
+  height: auto;
+  margin-top: calc(var(--hero-word-width) * var(--word-top, 0));
+  opacity: 0;
+}
+/* Match AMAZING's main stroke height and baseline, excluding SVG padding.
+   Its 5–95% ink band is y=10.75–72; both other bands are 57.5px high. */
+.hero-word-good { --word-width: .609466; --word-top: -.022675; --word-phase: 0; }
+.hero-word-stunning { --word-width: 1.173088; --word-top: .002270; --word-phase: 2; }
+.hero-word-amazing { --word-phase: 1; }
+.hero-amazing .hero-word-good { opacity: 1; }
+.hero-amazing.is-cycling img {
+  animation: hero-word-cycle calc(var(--hero-word-interval) * 3) steps(1, end) infinite;
+  animation-delay: calc(var(--hero-word-interval) * var(--word-phase) * -1);
+}
+.hero-amazing.is-paused img { animation-play-state: paused; }
+@keyframes hero-word-cycle {
+  0% { opacity: 1; }
+  33.333333333%, 100% { opacity: 0; }
+}
 .hero-last-line { top: 465px; }
 .hero-arrows { position: absolute; top: 595px; left: calc(50% - 111px); }
 .hero-contact {
